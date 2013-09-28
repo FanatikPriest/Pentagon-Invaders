@@ -7,7 +7,8 @@ class CApp {
     private:
         bool    Running;
 
-		SDL_Window*		window;
+		SDL_Window*		sdlWindow;
+		SDL_Renderer*	sdlRenderer;
 		SDL_Surface*    Surf_Display;
  
     public:

@@ -5,15 +5,25 @@ bool CApp::OnInit() {
         return false;
     }
 
-	window = SDL_CreateWindow("Pentagon Invaders",
+	sdlWindow = SDL_CreateWindow("Pentagon Invaders",
 				SDL_WINDOWPOS_CENTERED ,
 				SDL_WINDOWPOS_CENTERED,
 				1024, 768,
-				SDL_WINDOW_FULLSCREEN | SDL_WINDOW_OPENGL);
+				SDL_WINDOW_OPENGL);
  
-    if(window == NULL) {
+    if(sdlWindow == NULL) {
         return false;
     }
+
+	sdlRenderer = SDL_CreateRenderer(sdlWindow, -1, 0);
+
+	if(sdlRenderer == NULL) {
+        return false;
+    }
+
+	SDL_SetRenderDrawColor(sdlRenderer, 0, 0, 0, 255);
+	SDL_RenderClear(sdlRenderer);
+	SDL_RenderPresent(sdlRenderer);
  
     return true;
 }

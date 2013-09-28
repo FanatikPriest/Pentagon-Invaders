@@ -1,7 +1,8 @@
 #include "CApp.h"
  
 CApp::CApp() {
-	window = NULL;
+	sdlWindow = NULL;
+	sdlRenderer = NULL;
     Surf_Display = NULL;
  
     Running = true;

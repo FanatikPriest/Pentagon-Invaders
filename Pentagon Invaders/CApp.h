@@ -2,6 +2,8 @@
     #define _CAPP_H_
  
 #include <SDL.h>
+#include <SDL_opengl.h>
+#include <GL/glut.h>
  
 class CApp {
     private:
@@ -10,6 +12,7 @@ class CApp {
 		SDL_Window*		sdlWindow;
 		SDL_Renderer*	sdlRenderer;
 		SDL_Surface*    Surf_Display;
+		SDL_GLContext	glContext;
  
     public:
         CApp();

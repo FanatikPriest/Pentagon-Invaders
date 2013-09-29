@@ -13,33 +13,39 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\CApp">
+      <UniqueIdentifier>{228b86fa-3dc2-49b4-90fb-faa67430ba29}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CApp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Vector2f.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CApp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CApp_OnCleanup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CApp_OnEvent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CApp_OnInit.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CApp_OnLoop.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CApp_OnRender.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CApp.cpp">
+      <Filter>Source Files\CApp</Filter>
+    </ClCompile>
+    <ClCompile Include="CApp_OnCleanup.cpp">
+      <Filter>Source Files\CApp</Filter>
+    </ClCompile>
+    <ClCompile Include="CApp_OnEvent.cpp">
+      <Filter>Source Files\CApp</Filter>
+    </ClCompile>
+    <ClCompile Include="CApp_OnInit.cpp">
+      <Filter>Source Files\CApp</Filter>
+    </ClCompile>
+    <ClCompile Include="CApp_OnLoop.cpp">
+      <Filter>Source Files\CApp</Filter>
+    </ClCompile>
+    <ClCompile Include="CApp_OnRender.cpp">
+      <Filter>Source Files\CApp</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

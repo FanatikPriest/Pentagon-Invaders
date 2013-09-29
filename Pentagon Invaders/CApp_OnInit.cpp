@@ -1,5 +1,9 @@
-#include "CApp.h"
 #include <iostream>
+
+#include "CApp.h"
+#include "SpaceShip.h"
+#include "Vector2f.h"
+
 
 const int WINDOW_WIDTH = 1024;
 const int WINDOW_HEIGHT = 768;
@@ -9,7 +13,16 @@ bool CApp::OnInit() {
         return false;
     }
 
-	SDL_GL_SetAttribute( SDL_GL_DOUBLEBUFFER, 1 );
+	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 1);
+
+	glEnable(GL_LINE_SMOOTH);
+	glEnable(GL_POLYGON_SMOOTH);
+	glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
+	glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glShadeModel(GL_SMOOTH);
 
 	sdlWindow = SDL_CreateWindow("Pentagon Invaders",
 				SDL_WINDOWPOS_CENTERED ,
@@ -37,29 +50,31 @@ bool CApp::OnInit() {
 
 	glContext = SDL_GL_CreateContext(sdlWindow);
 
-	glShadeModel(GL_SMOOTH);
+	
 	glViewport(0,0, WINDOW_WIDTH, WINDOW_HEIGHT);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluOrtho2D(0.0, WINDOW_WIDTH, 0.0, WINDOW_HEIGHT);
+	
+	SpaceShip s(Vector2f(500.0f, 500.0f), 30);
+	Vector2f *vertices = s.getVertices();
 
-	glBegin(GL_TRIANGLES); /* Drawing Using Triangles */
-		glColor3f(1.0f, 0.0f, 0.0f);
-		//glVertex2f( 0.0f, 1.0f ); /* Top */
-		glVertex2d(0, 0);
+	glBegin(GL_POLYGON);
+		glColor3f(0.75f, 0.5f, 0.25f);
 
-		glColor3f(0.0f, 1.0f, 0.0f);
-		//glVertex2f( -1.0f, -1.0f ); /* Bottom Left */
-		glVertex2d(100, 100);
-		glColor3f(0.0f, 0.0f, 1.0f);
-		//glVertex2f( 1.0f, -1.0f ); /* Bottom Right */
-		glVertex2d(0, 100);
-	glEnd(); /* Finished Drawing The Triangle */
+
+		for (int i = 0; i < s.getNumberOfVertices(); i++) {
+			Vector2f v = vertices[i];
+
+			glVertex2f(v.getX(), v.getY());
+		}
+	glEnd();
+
 	glFlush();
 
 	SDL_GL_SwapWindow(sdlWindow);
 
 	SDL_RenderPresent(sdlRenderer);
- 
+
     return true;
 }

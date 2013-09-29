@@ -28,6 +28,21 @@ public:
 	inline float getX() const { return _x; }
 	inline float getY() const { return _y; }
 
+	inline Vector2f clone() const
+	{
+		return Vector2f(_x, _y);
+	}
+
+	inline Vector2f perp() const
+	{
+		return Vector2f(-_y, _x);
+	}
+
+	inline Vector2f rotate(const float &radians) const
+	{
+		return (*this) * cos(radians) + perp() * sin(radians);
+	}
+
 	inline bool operator==(const Vector2f & rhs) const
 	{
 		return _x == rhs._x && _y == rhs._y;

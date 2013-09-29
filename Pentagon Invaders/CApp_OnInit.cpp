@@ -57,6 +57,7 @@ bool CApp::OnInit() {
 	gluOrtho2D(0.0, WINDOW_WIDTH, 0.0, WINDOW_HEIGHT);
 	
 	SpaceShip s(Vector2f(500.0f, 500.0f), 30);
+	s.rotate(M_PI/9);
 	Vector2f *vertices = s.getVertices();
 
 	glBegin(GL_POLYGON);

@@ -27,6 +27,9 @@
     <ClInclude Include="SpaceShip.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ShipStatistics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -51,6 +54,9 @@
       <Filter>Source Files\CApp</Filter>
     </ClCompile>
     <ClCompile Include="SpaceShip.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ShipStatistics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

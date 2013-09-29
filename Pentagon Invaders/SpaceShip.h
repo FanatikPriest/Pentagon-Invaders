@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Vector2f.h"
+#include "ShipStatistics.h"
 
 /**
 	Represents a space ship.
@@ -12,6 +13,8 @@ public:
 	~SpaceShip();
 
 	void rotate(double angle);
+	ShipStatistics getStats() const;
+	void setStats(const ShipStatistics stats);
 
 	Vector2f* getVertices() const;
 	const int getNumberOfVertices() const;
@@ -25,6 +28,7 @@ private:
 	double _rotationAngle;
 	Vector2f _center;
 	Vector2f* _vertices;
+	ShipStatistics _stats;
 	
 	void generateVertices();
 };

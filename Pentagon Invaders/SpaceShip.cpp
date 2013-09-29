@@ -12,7 +12,9 @@ SpaceShip::SpaceShip(const Vector2f center, int radius, int numberOfVertices)
 	_radius = radius;
 	_rotationAngle = 0;
 	_center = center;
+
 	generateVertices();
+	setStats(ShipStatistics());
 }
 
 SpaceShip::~SpaceShip()
@@ -61,6 +63,16 @@ void SpaceShip::rotate(double angle)
 	}
 
 	generateVertices();
+}
+
+ShipStatistics SpaceShip::getStats() const
+{
+	return _stats;
+}
+
+void SpaceShip::setStats(const ShipStatistics stats)
+{
+	_stats = stats;
 }
 
 Vector2f* SpaceShip::getVertices() const

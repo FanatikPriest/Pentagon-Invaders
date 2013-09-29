@@ -83,6 +83,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CApp.h" />
+    <ClInclude Include="ShipStatistics.h" />
     <ClInclude Include="SpaceShip.h" />
     <ClInclude Include="Vector2f.h" />
   </ItemGroup>
@@ -94,6 +95,7 @@
     <ClCompile Include="CApp_OnLoop.cpp" />
     <ClCompile Include="CApp_OnRender.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ShipStatistics.cpp" />
     <ClCompile Include="SpaceShip.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

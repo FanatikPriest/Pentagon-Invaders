@@ -4,32 +4,36 @@
 #include <SDL.h>
 #include <SDL_opengl.h>
 #include <GL/glut.h>
+
+#include "Scene.h"
  
 class CApp {
-    private:
-        bool    Running;
+private:
+	bool    Running;
 
-		SDL_Window*		sdlWindow;
-		SDL_Renderer*	sdlRenderer;
-		SDL_Surface*    Surf_Display;
-		SDL_GLContext	glContext;
+	SDL_Window*		sdlWindow;
+	SDL_Renderer*	sdlRenderer;
+	SDL_Surface*    Surf_Display;
+	SDL_GLContext	glContext;
+
+	Scene scene;
  
-    public:
-        CApp();
+public:
+    CApp();
  
-        int OnExecute();
+    int OnExecute();
  
-    public:
+public:
  
-        bool OnInit();
+    bool OnInit();
  
-        void OnEvent(SDL_Event* Event);
+    void OnEvent(SDL_Event* Event);
  
-        void OnLoop();
+    void OnLoop();
  
-        void OnRender();
+    void OnRender();
  
-        void OnCleanup();
+    void OnCleanup();
 };
 
 #endif

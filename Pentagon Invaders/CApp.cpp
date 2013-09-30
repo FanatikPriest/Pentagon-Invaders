@@ -6,6 +6,8 @@ CApp::CApp() {
     Surf_Display = NULL;
  
     Running = true;
+
+	scene = Scene();
 }
  
 int CApp::OnExecute() {

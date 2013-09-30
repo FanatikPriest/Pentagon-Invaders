@@ -6,6 +6,11 @@
 
 #define PI2 (2 * M_PI)
 
+SpaceShip::SpaceShip()
+{
+	_vertices = NULL;
+}
+
 SpaceShip::SpaceShip(const Vector2f center, int radius, int numberOfVertices)
 {
 	_numberOfVertices = numberOfVertices;

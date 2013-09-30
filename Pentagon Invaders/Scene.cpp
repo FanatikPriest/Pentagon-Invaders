@@ -1,15 +1,24 @@
 #include "Scene.h"
 
-Scene::Scene() : _playerShip(Vector2f(512.0f, 650.0f), 20, 3) {}
+Scene & Scene::getInstance()
+{
+	static Scene * instance;
+
+	if (instance == NULL) {
+		instance = new Scene();
+	}
+
+	return *instance;
+}
 
 const SpaceShip& Scene::getPlayerShip() const
 {
 	return _playerShip;
 }
 
-std::vector<SpaceShip*> Scene::getShips() const
+const std::list<SpaceShip*>* Scene::getShips() const
 {
-	return _ships;
+	return &_ships;
 }
 
 void Scene::addSpaceShip(SpaceShip s)

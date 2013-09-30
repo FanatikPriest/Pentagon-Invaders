@@ -44,10 +44,6 @@ bool CApp::OnInit() {
 
 	Surf_Display = SDL_GetWindowSurface(sdlWindow);
 
-	SDL_SetRenderDrawColor(sdlRenderer, 0, 0, 0, 255);
-	SDL_RenderClear(sdlRenderer);
-	SDL_RenderPresent(sdlRenderer);
-
 	glContext = SDL_GL_CreateContext(sdlWindow);
 
 	
@@ -55,27 +51,6 @@ bool CApp::OnInit() {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluOrtho2D(0.0, WINDOW_WIDTH, 0.0, WINDOW_HEIGHT);
-	
-	SpaceShip s(Vector2f(500.0f, 500.0f), 30);
-	s.rotate(M_PI/9);
-	Vector2f *vertices = s.getVertices();
-
-	glBegin(GL_POLYGON);
-		glColor3f(0.75f, 0.5f, 0.25f);
-
-
-		for (int i = 0; i < s.getNumberOfVertices(); i++) {
-			Vector2f v = vertices[i];
-
-			glVertex2f(v.getX(), v.getY());
-		}
-	glEnd();
-
-	glFlush();
-
-	SDL_GL_SwapWindow(sdlWindow);
-
-	SDL_RenderPresent(sdlRenderer);
 
     return true;
 }

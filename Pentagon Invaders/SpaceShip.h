@@ -9,6 +9,7 @@
 class SpaceShip
 {
 public:
+	SpaceShip();
 	SpaceShip(const Vector2f center, int radius = DEFAULT_RADIUS, int numberOfVertices = DEFAULT_NUMBER_OF_VERTICES);
 	~SpaceShip();
 

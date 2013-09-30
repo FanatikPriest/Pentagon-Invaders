@@ -16,7 +16,7 @@ private:
 	SDL_Surface*    Surf_Display;
 	SDL_GLContext	glContext;
 
-	Scene scene;
+	Scene* scene;
  
 public:
     CApp();

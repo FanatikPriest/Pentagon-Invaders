@@ -7,7 +7,7 @@ CApp::CApp() {
  
     Running = true;
 
-	scene = Scene();
+	scene = &Scene::getInstance();
 }
  
 int CApp::OnExecute() {

@@ -27,8 +27,8 @@ public:
  
     bool OnInit();
  
-    void OnEvent(SDL_Event* Event);
- 
+    void OnEvent(SDL_Event& event);
+
     void OnLoop();
  
     void OnRender();

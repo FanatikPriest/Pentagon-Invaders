@@ -11,12 +11,12 @@ Scene & Scene::getInstance()
 	return *instance;
 }
 
-const SpaceShip& Scene::getPlayerShip() const
+SpaceShip& Scene::getPlayerShip()
 {
 	return _playerShip;
 }
 
-const std::list<SpaceShip*>* Scene::getShips() const
+std::list<SpaceShip*>* Scene::getShips()
 {
 	return &_ships;
 }

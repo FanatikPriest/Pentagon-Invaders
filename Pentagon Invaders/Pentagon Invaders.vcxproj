@@ -87,6 +87,8 @@
   <ItemGroup>
     <ClInclude Include="CApp.h" />
     <ClInclude Include="DrawingUtils.h" />
+    <ClInclude Include="KeyboardHandler.h" />
+    <ClInclude Include="MovementHandler.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="ShipStatistics.h" />
     <ClInclude Include="SpaceShip.h" />

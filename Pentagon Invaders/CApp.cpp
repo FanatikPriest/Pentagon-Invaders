@@ -15,11 +15,11 @@ int CApp::OnExecute() {
         return -1;
     }
  
-    SDL_Event Event;
+    SDL_Event event;
  
     while(Running) {
-        while(SDL_PollEvent(&Event)) {
-            OnEvent(&Event);
+        while(SDL_PollEvent(&event)) {
+            OnEvent(event);
         }
  
         OnLoop();

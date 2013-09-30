@@ -13,6 +13,7 @@ public:
 	SpaceShip(const Vector2f center, int radius = DEFAULT_RADIUS, int numberOfVertices = DEFAULT_NUMBER_OF_VERTICES);
 	~SpaceShip();
 
+	void move(Vector2f& direction);
 	void rotate(double angle);
 	ShipStatistics getStats() const;
 	void setStats(const ShipStatistics stats);
@@ -20,16 +21,17 @@ public:
 	Vector2f* getVertices() const;
 	const int getNumberOfVertices() const;
 
+	void generateVertices();
+
 private:
 	static const int DEFAULT_RADIUS = 15;
 	static const int DEFAULT_NUMBER_OF_VERTICES = 5;
 
 	int _numberOfVertices;
 	int _radius;
+	float _speed;
 	double _rotationAngle;
 	Vector2f _center;
 	Vector2f* _vertices;
 	ShipStatistics _stats;
-	
-	void generateVertices();
 };

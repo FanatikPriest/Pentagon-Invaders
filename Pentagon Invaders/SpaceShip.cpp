@@ -15,7 +15,8 @@ SpaceShip::SpaceShip(const Vector2f center, int radius, int numberOfVertices)
 {
 	_numberOfVertices = numberOfVertices;
 	_radius = radius;
-	_rotationAngle = 0;
+	_speed = 1.0f;
+	_rotationAngle = 0.0;
 	_center = center;
 	_vertices = NULL;
 
@@ -46,6 +47,11 @@ inline void SpaceShip::generateVertices()
 	}
 }
 
+void SpaceShip::move(Vector2f& direction)
+{
+	_center = _center + (direction * _speed);
+}
+
 void SpaceShip::rotate(double angle)
 {
 	_rotationAngle += angle;
@@ -67,8 +73,6 @@ void SpaceShip::rotate(double angle)
 			recalculate = false;
 		}
 	}
-
-	generateVertices();
 }
 
 ShipStatistics SpaceShip::getStats() const

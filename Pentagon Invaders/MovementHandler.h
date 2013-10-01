@@ -10,7 +10,7 @@ namespace MovementHandler
 	float speed = 5.0f;
 	float zero = 0.0f;
 
-	float rotationSpeed = 0.05f;
+	float rotationSpeed = 0.06f;
 
 	Vector2f up(zero, speed);
 	Vector2f down(zero, -speed);

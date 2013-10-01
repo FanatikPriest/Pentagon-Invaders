@@ -30,6 +30,7 @@ private:
 	int _numberOfVertices;
 	int _radius;
 	float _speed;
+	float _rotationSpeed;
 	double _rotationAngle;
 	Vector2f _center;
 	Vector2f* _vertices;

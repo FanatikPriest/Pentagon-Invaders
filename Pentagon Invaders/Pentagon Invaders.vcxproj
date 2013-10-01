@@ -86,6 +86,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CApp.h" />
+    <ClInclude Include="Delta.h" />
     <ClInclude Include="DrawingUtils.h" />
     <ClInclude Include="KeyboardHandler.h" />
     <ClInclude Include="MovementHandler.h" />
@@ -101,6 +102,7 @@
     <ClCompile Include="CApp_OnInit.cpp" />
     <ClCompile Include="CApp_OnLoop.cpp" />
     <ClCompile Include="CApp_OnRender.cpp" />
+    <ClCompile Include="Delta.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="ShipStatistics.cpp" />

@@ -1,7 +1,10 @@
 #include "CApp.h"
 #include "MovementHandler.h"
+#include "Delta.h"
  
 void CApp::OnLoop() {
+	Delta::set();
+
 	SpaceShip& player = scene->getPlayerShip();
 
 	MovementHandler::movePlayer(player);

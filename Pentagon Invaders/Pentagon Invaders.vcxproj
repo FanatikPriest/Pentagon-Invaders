@@ -85,10 +85,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="CApp.h" />
     <ClInclude Include="Delta.h" />
     <ClInclude Include="DrawingUtils.h" />
     <ClInclude Include="KeyboardHandler.h" />
+    <ClInclude Include="LoopUtils.h" />
     <ClInclude Include="MovementHandler.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="ShipStatistics.h" />
@@ -96,6 +98,7 @@
     <ClInclude Include="Vector2f.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="CApp.cpp" />
     <ClCompile Include="CApp_OnCleanup.cpp" />
     <ClCompile Include="CApp_OnEvent.cpp" />

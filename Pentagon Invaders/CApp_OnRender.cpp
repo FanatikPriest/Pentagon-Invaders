@@ -7,6 +7,9 @@ void CApp::OnRender() {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
+	renderBullets(*scene->getEnemyBullets());
+	renderBullets(*scene->getPlayerBullets());
+
 	renderShip(scene->getPlayerShip());
 	renderShips(*scene->getShips());
 

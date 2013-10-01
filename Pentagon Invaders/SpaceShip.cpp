@@ -15,7 +15,7 @@ SpaceShip::SpaceShip()
 SpaceShip::SpaceShip(const Vector2f center, int radius, int numberOfVertices)
 {
 	_numberOfVertices = numberOfVertices;
-	_radius = radius;
+	_radius	= radius;
 	_speed = 1.0f;
 	_rotationSpeed = 1.0f;
 	_rotationAngle = 0.0;

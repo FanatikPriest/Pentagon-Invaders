@@ -2,13 +2,38 @@
 #include <SDL.h>
 #include <SDL_opengl.h>
 #include <GL/glut.h>
+#include <math.h>
 
 #include "SpaceShip.h"
 
 namespace DrawingUtils
 {
+	void drawCircle(const float x, const float y, const float radius)
+	{
+
+		glLineWidth(1);
+
+		float x2, y2;
+		float angle;
+
+		// TODO get color from object
+		glColor3f(0.75f, 0.5f, 0.25f);
  
-	void renderShip(const SpaceShip& ship, bool flush = true)
+		glBegin(GL_TRIANGLE_FAN);
+		glVertex2f(x, y);
+ 
+		for (angle = 1.0f; angle < 361.0f; angle += 1.0)
+		{
+			x2 = x + sin(angle) * radius;
+			y2 = y + cos(angle) * radius;
+
+			glVertex2f(x2, y2);
+		}
+ 
+		glEnd();
+	}
+
+	void renderShip(const SpaceShip& ship, const bool flush = true)
 	{
 		// Begin drawing the ship.
 		glBegin(GL_POLYGON);
@@ -18,7 +43,8 @@ namespace DrawingUtils
 
 		Vector2f *vertices = ship.getVertices();
 
-		for (int i = 0; i < ship.getNumberOfVertices(); i++) {
+		for (int i = 0; i < ship.getNumberOfVertices(); i++)
+		{
 			Vector2f v = vertices[i];
 
 			glVertex2f(v.getX(), v.getY());
@@ -36,9 +62,30 @@ namespace DrawingUtils
 	void renderShips(const std::list<SpaceShip*>& ships)
 	{
 		std::list<SpaceShip*>::const_iterator iterator;
-		for (iterator = ships.begin(); iterator != ships.end(); ++iterator) {
+		for (iterator = ships.begin(); iterator != ships.end(); ++iterator)
+		{
 			SpaceShip* ship = *iterator;
 			renderShip(*ship, false);
+		}
+
+		glFlush();
+	}
+
+	void renderBullet(const Bullet& b, const bool flush = true)
+	{
+		drawCircle(b.getCenter().getX(), b.getCenter().getY(), b.getRadius());
+
+		if (flush)
+		{
+			glFlush();
+		}
+	}
+
+	void renderBullets(std::list<Bullet*>& bullets)
+	{
+		for (auto iterator = bullets.begin(); iterator != bullets.end(); ++iterator)
+		{
+			renderBullet(**iterator, false);
 		}
 
 		glFlush();

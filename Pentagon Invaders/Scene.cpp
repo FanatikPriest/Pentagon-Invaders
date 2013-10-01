@@ -21,7 +21,26 @@ std::list<SpaceShip*>* Scene::getShips()
 	return &_ships;
 }
 
-void Scene::addSpaceShip(SpaceShip s)
+std::list<Bullet*>* Scene::getPlayerBullets()
 {
-	_ships.push_back(&s);
+	return &_playerBullets;
+}
+
+std::list<Bullet*>* Scene::getEnemyBullets()
+{
+	return &_enemyBullets;
+}
+
+void Scene::addSpaceShip(SpaceShip* s)
+{
+	_ships.push_back(s);
+}
+
+void Scene::addPlayerBullet(Bullet* b)
+{
+	_playerBullets.push_back(b);
+}
+void Scene::addEnemyBullet(Bullet* b)
+{
+	_enemyBullets.push_back(b);
 }

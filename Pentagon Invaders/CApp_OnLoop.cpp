@@ -3,8 +3,6 @@
 #include "Delta.h"
 #include "LoopUtils.h"
 #include "Vector2f.h"
-
-using namespace LoopUtils;
  
 void CApp::OnLoop() {
 	Delta::set();
@@ -18,8 +16,8 @@ void CApp::OnLoop() {
 
 	// TODO remove off-screen objects
 
-	moveBullets(*scene->getEnemyBullets());
-	moveBullets(*scene->getPlayerBullets());
+	LoopUtils::moveBullets(*scene->getEnemyBullets());
+	LoopUtils::moveBullets(*scene->getPlayerBullets());
 
 	// TODO add bullets
 

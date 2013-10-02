@@ -5,52 +5,19 @@
 #include "SpaceShip.h"
 #include "KeyboardHandler.h"
 
-namespace MovementHandler
+class MovementHandler
 {
-	float speed = 5.0f;
-	float zero = 0.0f;
+public:
+	static void movePlayer(SpaceShip& player);
 
-	float rotationSpeed = 0.06f;
+private:
+	static const float speed;
+	static const float zero;
 
-	Vector2f up(zero, speed);
-	Vector2f down(zero, -speed);
-	Vector2f left(-speed, zero);
-	Vector2f right(speed, zero);
+	static const float rotationSpeed;
 
-	void movePlayer(SpaceShip& player)
-	{
-		KeyboardHandler& keyboard = KeyboardHandler::getInstance();
-
-		if (keyboard.w == SDL_PRESSED)
-		{
-			player.move(up);
-		}
-
-		if (keyboard.a == SDL_PRESSED)
-		{
-			player.move(left);
-		}
-
-		if (keyboard.s == SDL_PRESSED)
-		{
-			player.move(down);
-		}
-
-		if (keyboard.d == SDL_PRESSED)
-		{
-			player.move(right);
-		}
-
-		if (keyboard.left == SDL_PRESSED)
-		{
-			//rotate counter clockwise
-			player.rotate((double)rotationSpeed);
-		}
-
-		if (keyboard.right == SDL_PRESSED)
-		{
-			//rotate clockwise
-			player.rotate(-(double)rotationSpeed);
-		}
-	}
-}
+	static const Vector2f up;
+	static const Vector2f down;
+	static const Vector2f left;
+	static const Vector2f right;
+};

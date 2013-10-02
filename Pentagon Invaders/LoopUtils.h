@@ -3,9 +3,10 @@
 #include "SpaceShip.h"
 #include "Bullet.h"
 
-namespace LoopUtils
+class LoopUtils
 {
-	void moveBullets(const std::list<Bullet*>& bullets)
+public:
+	static void moveBullets(const std::list<Bullet*>& bullets)
 	{
 		std::list<Bullet*>::const_iterator iterator;
 		for (iterator = bullets.begin(); iterator != bullets.end(); ++iterator)
@@ -14,4 +15,4 @@ namespace LoopUtils
 			bullet->move();
 		}
 	}
-}
+};

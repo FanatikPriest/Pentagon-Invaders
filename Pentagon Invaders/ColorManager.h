@@ -1,23 +1,21 @@
 #pragma once
 
-#include <stdlib.h>
+#include <cstdlib>
+#include <time.h>
 
 #include "Color.h"
 
-namespace ColorManager
+class ColorManager
 {
-	const Color palette [5] = {
-		Color(0.392f, 0.047f, 0.671f), // purple
-		Color(0.788f, 0.0f, 0.478f), // violet
-		Color(1.0f, 0.0f, 0.0f), // red
-		Color(1.0f, 0.514f, 0.0f), // orange
-		Color(1.0f, 0.855f, 0.0f) // yellow
-	};
+public:
+	static const Color palette [5];
 
-	const Color playerColor(0.42f, 0.894f, 0.0f); // green
+	static const Color playerColor;
 
-	const Color black(0.0f, 0.0f, 0.0f);
-	const Color white(1.0f, 1.0f, 1.0f);
+	static const Color black;
+	static const Color white;
 
-	const Color& getRandom();
-}
+	static const Color& getRandom();
+private:
+	static Color lastColor;
+};

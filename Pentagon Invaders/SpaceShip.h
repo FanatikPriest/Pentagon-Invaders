@@ -15,7 +15,7 @@ public:
 	SpaceShip(const Vector2f center, float radius, int numberOfVertices = DEFAULT_NUMBER_OF_VERTICES);
 	~SpaceShip();
 
-	void move(Vector2f& direction);
+	void move(const Vector2f& direction);
 	void rotate(double angle);
 	ShipStatistics getStats() const;
 	void setStats(const ShipStatistics stats);

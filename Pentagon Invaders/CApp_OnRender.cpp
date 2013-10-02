@@ -1,17 +1,15 @@
 #include "CApp.h"
 #include "DrawingUtils.h"
 
-using namespace DrawingUtils;
-
 void CApp::OnRender() {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	renderBullets(*scene->getEnemyBullets());
-	renderBullets(*scene->getPlayerBullets());
+	DrawingUtils::renderBullets(*scene->getEnemyBullets());
+	DrawingUtils::renderBullets(*scene->getPlayerBullets());
 
-	renderShip(scene->getPlayerShip());
-	renderShips(*scene->getShips());
+	DrawingUtils::renderShip(scene->getPlayerShip());
+	DrawingUtils::renderShips(*scene->getShips());
 
 	SDL_GL_SwapWindow(sdlWindow);
 }

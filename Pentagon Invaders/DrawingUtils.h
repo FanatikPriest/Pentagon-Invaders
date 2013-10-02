@@ -7,9 +7,10 @@
 #include "SpaceShip.h"
 #include "Color.h"
 
-namespace DrawingUtils
+class DrawingUtils
 {
-	void drawCircle(const float x, const float y, const float radius)
+public:
+	static void drawCircle(const float x, const float y, const float radius)
 	{
 
 		glLineWidth(1);
@@ -34,7 +35,7 @@ namespace DrawingUtils
 		glEnd();
 	}
 
-	void renderShip(const SpaceShip& ship, const bool flush = true)
+	static void renderShip(const SpaceShip& ship, const bool flush = true)
 	{
 		// Begin drawing the ship.
 		glBegin(GL_POLYGON);
@@ -60,7 +61,7 @@ namespace DrawingUtils
 		}
 	}
 
-	void renderShips(const std::list<SpaceShip*>& ships)
+	static void renderShips(const std::list<SpaceShip*>& ships)
 	{
 		std::list<SpaceShip*>::const_iterator iterator;
 		for (iterator = ships.begin(); iterator != ships.end(); ++iterator)
@@ -72,7 +73,7 @@ namespace DrawingUtils
 		glFlush();
 	}
 
-	void renderBullet(const Bullet& b, const bool flush = true)
+	static void renderBullet(const Bullet& b, const bool flush = true)
 	{
 		drawCircle(b.getCenter().getX(), b.getCenter().getY(), b.getRadius());
 
@@ -82,7 +83,7 @@ namespace DrawingUtils
 		}
 	}
 
-	void renderBullets(std::list<Bullet*>& bullets)
+	static void renderBullets(std::list<Bullet*>& bullets)
 	{
 		for (auto iterator = bullets.begin(); iterator != bullets.end(); ++iterator)
 		{
@@ -91,4 +92,4 @@ namespace DrawingUtils
 
 		glFlush();
 	}
-}
+};

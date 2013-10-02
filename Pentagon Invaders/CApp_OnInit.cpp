@@ -4,8 +4,6 @@
 #include "SpaceShip.h"
 #include "Vector2f.h"
 #include "WindowSettings.h"
-
-using namespace WindowSettings;
  
 bool CApp::OnInit() {
     if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
@@ -26,7 +24,7 @@ bool CApp::OnInit() {
 	sdlWindow = SDL_CreateWindow("Pentagon Invaders",
 				SDL_WINDOWPOS_CENTERED ,
 				SDL_WINDOWPOS_CENTERED,
-				WINDOW_WIDTH, WINDOW_HEIGHT,
+				WindowSettings::WINDOW_WIDTH, WindowSettings::WINDOW_HEIGHT,
 				SDL_WINDOW_OPENGL);
  
     if(sdlWindow == NULL) {
@@ -46,10 +44,10 @@ bool CApp::OnInit() {
 	glContext = SDL_GL_CreateContext(sdlWindow);
 
 	
-	glViewport(0,0, WINDOW_WIDTH, WINDOW_HEIGHT);
+	glViewport(0,0, WindowSettings::WINDOW_WIDTH, WindowSettings::WINDOW_HEIGHT);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluOrtho2D(0.0, WINDOW_WIDTH, 0.0, WINDOW_HEIGHT);
+	gluOrtho2D(0.0, WindowSettings::WINDOW_WIDTH, 0.0, WindowSettings::WINDOW_HEIGHT);
 
     return true;
 }

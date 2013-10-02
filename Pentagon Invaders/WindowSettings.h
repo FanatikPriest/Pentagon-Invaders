@@ -1,7 +1,8 @@
 #pragma once
 
-namespace WindowSettings
+class WindowSettings
 {
-	const int WINDOW_WIDTH = 1024;
-	const int WINDOW_HEIGHT = 768;
-}
+public:
+	static const int WINDOW_WIDTH = 1024;
+	static const int WINDOW_HEIGHT = 768;
+};

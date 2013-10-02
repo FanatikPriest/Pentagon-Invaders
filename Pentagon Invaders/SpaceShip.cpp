@@ -55,7 +55,7 @@ inline void SpaceShip::generateVertices()
 	}
 }
 
-void SpaceShip::move(Vector2f& direction)
+void SpaceShip::move(const Vector2f& direction)
 {
 	_center = _center + (direction * _speed * Delta::get());
 

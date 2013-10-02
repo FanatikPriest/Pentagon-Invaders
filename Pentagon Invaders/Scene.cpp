@@ -1,5 +1,16 @@
 #include "Scene.h"
 
+Scene::Scene() : _playerShip(SpaceShip(Vector2f(512.0f, 100.0f), 20, 3))
+{
+	_playerShip.setColor(ColorManager::playerColor);
+	_playerShip.setPlayer();
+}
+
+Scene::~Scene()
+{
+	// TODO delete all bullets and ships
+}
+
 Scene & Scene::getInstance()
 {
 	static Scene * instance;
@@ -43,4 +54,37 @@ void Scene::addPlayerBullet(Bullet* b)
 void Scene::addEnemyBullet(Bullet* b)
 {
 	_enemyBullets.push_back(b);
+}
+
+void Scene::removeOffScreenObjects()
+{
+	removeOffScreenShips();
+	removeOffScreenBullets(_playerBullets);
+	removeOffScreenBullets(_enemyBullets);
+}
+
+void Scene::removeOffScreenShips()
+{
+	for (auto iter = _ships.begin(); iter != _ships.end(); ++iter)
+	{
+		SpaceShip* ship = *iter;
+		if (ship->isOffScreen())
+		{
+			_ships.remove(ship);
+		}
+	}
+}
+
+void Scene::removeOffScreenBullets(std::list<Bullet*>& bullets)
+{
+	for (auto iter = _playerBullets.begin(); iter != _playerBullets.end(); ++iter)
+	{
+		Bullet* bullet = *iter;
+		if (bullet->isOffScreen())
+		{
+			_playerBullets.erase(iter);
+
+			delete (bullet);
+		}
+	}
 }

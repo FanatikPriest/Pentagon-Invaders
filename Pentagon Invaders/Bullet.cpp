@@ -1,4 +1,5 @@
 #include "Bullet.h"
+#include "WindowSettings.h"
 
 Bullet::Bullet(Vector2f center, Vector2f direction, float radius, float speed, int damage)
 {
@@ -21,4 +22,17 @@ const Vector2f& Bullet::getCenter() const
 const float Bullet::getRadius() const
 {
 	return _radius;
+}
+
+const bool Bullet::isOffScreen() const
+{
+	float x = _center.getX();
+	float y = _center.getY();
+
+	bool left = x < -_radius;
+	bool right = x > WindowSettings::WINDOW_WIDTH + _radius;
+	bool bottom = y < -_radius;
+	bool top = y > WindowSettings::WINDOW_HEIGHT + _radius;
+
+	return left || right || bottom || top;
 }

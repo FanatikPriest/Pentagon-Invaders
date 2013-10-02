@@ -9,6 +9,8 @@
 class Scene
 {
 public:
+	~Scene();
+
 	static Scene & getInstance();
 
 	SpaceShip& getPlayerShip();
@@ -18,16 +20,19 @@ public:
 	void addSpaceShip(SpaceShip* s);
 	void addPlayerBullet(Bullet* b);
 	void addEnemyBullet(Bullet* b);
-private:
-	Scene() : _playerShip(SpaceShip(Vector2f(512.0f, 100.0f), 20, 3))
-	{
-		_playerShip.setColor(ColorManager::playerColor);
-	}
-	Scene(Scene const&);
-	void operator=(Scene const&);
 
+	void removeOffScreenObjects();
+
+private:
 	SpaceShip _playerShip;
 	std::list<SpaceShip*> _ships;
 	std::list<Bullet*> _playerBullets;
 	std::list<Bullet*> _enemyBullets;
+
+	Scene();
+	Scene(Scene const&);
+	void operator=(Scene const&);
+
+	void removeOffScreenShips();
+	void removeOffScreenBullets(std::list<Bullet*>& bullets);
 };

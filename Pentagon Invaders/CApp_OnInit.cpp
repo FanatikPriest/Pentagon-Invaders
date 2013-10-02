@@ -3,10 +3,9 @@
 #include "CApp.h"
 #include "SpaceShip.h"
 #include "Vector2f.h"
+#include "WindowSettings.h"
 
-
-const int WINDOW_WIDTH = 1024;
-const int WINDOW_HEIGHT = 768;
+using namespace WindowSettings;
  
 bool CApp::OnInit() {
     if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {

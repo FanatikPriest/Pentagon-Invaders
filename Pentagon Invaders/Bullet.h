@@ -13,6 +13,8 @@ public:
 	const Vector2f& getCenter() const;
 	const float getRadius() const;
 
+	const bool isOffScreen() const;
+
 private:
 	Vector2f _center;
 	Vector2f _direction;

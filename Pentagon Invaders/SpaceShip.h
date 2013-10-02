@@ -12,7 +12,7 @@ class SpaceShip
 {
 public:
 	SpaceShip();
-	SpaceShip(const Vector2f center, int radius = DEFAULT_RADIUS, int numberOfVertices = DEFAULT_NUMBER_OF_VERTICES);
+	SpaceShip(const Vector2f center, float radius, int numberOfVertices = DEFAULT_NUMBER_OF_VERTICES);
 	~SpaceShip();
 
 	void move(Vector2f& direction);
@@ -22,18 +22,19 @@ public:
 
 	Vector2f* getVertices() const;
 	const int getNumberOfVertices() const;
-
 	void generateVertices();
 
 	void setColor(const Color& color);
 	const Color& getColor() const;
 
+	void setPlayer();
+	const bool isOffScreen() const;
+
 private:
-	static const int DEFAULT_RADIUS = 15;
 	static const int DEFAULT_NUMBER_OF_VERTICES = 5;
 
 	int _numberOfVertices;
-	int _radius;
+	float _radius;
 	float _speed;
 	float _rotationSpeed;
 	double _rotationAngle;
@@ -41,4 +42,5 @@ private:
 	Vector2f* _vertices;
 	ShipStatistics _stats;
 	const Color* _color;
+	bool _isPlayer;
 };

@@ -4,6 +4,7 @@
 
 #include "SpaceShip.h"
 #include "Delta.h"
+#include "WindowSettings.h"
 
 #define PI2 (2 * M_PI)
 
@@ -13,7 +14,7 @@ SpaceShip::SpaceShip()
 	setColor(ColorManager::white);
 }
 
-SpaceShip::SpaceShip(const Vector2f center, int radius, int numberOfVertices)
+SpaceShip::SpaceShip(const Vector2f center, float radius, int numberOfVertices)
 {
 	_numberOfVertices = numberOfVertices;
 	_radius	= radius;
@@ -22,6 +23,7 @@ SpaceShip::SpaceShip(const Vector2f center, int radius, int numberOfVertices)
 	_rotationAngle = 0.0;
 	_center = center;
 	_vertices = NULL;
+	_isPlayer = false;
 
 	setColor(ColorManager::white);
 
@@ -56,6 +58,30 @@ inline void SpaceShip::generateVertices()
 void SpaceShip::move(Vector2f& direction)
 {
 	_center = _center + (direction * _speed * Delta::get());
+
+	if (_isPlayer)
+	{
+		float x = _center.getX();
+		float y = _center.getY();
+
+		if (x < _radius)
+		{
+			_center.setX((float)_radius);
+		}
+		else if (x > WindowSettings::WINDOW_WIDTH - _radius)
+		{
+			_center.setX((float)(WindowSettings::WINDOW_WIDTH - _radius));
+		}
+
+		if (y < _radius)
+		{
+			_center.setY((float)_radius);
+		}
+		else if (y > WindowSettings::WINDOW_HEIGHT - _radius)
+		{
+			_center.setY((float)(WindowSettings::WINDOW_HEIGHT - _radius));
+		}
+	}
 }
 
 void SpaceShip::rotate(double angle)
@@ -108,6 +134,19 @@ const int SpaceShip::getNumberOfVertices() const
 	return _numberOfVertices;
 }
 
+const bool SpaceShip::isOffScreen() const
+{
+	float x = _center.getX();
+	float y = _center.getY();
+
+	bool left = x < -_radius;
+	bool right = x > WindowSettings::WINDOW_WIDTH + _radius;
+	bool bottom = y < -_radius;
+	bool top = y > WindowSettings::WINDOW_HEIGHT + _radius;
+
+	return left || right || bottom || top;
+}
+
 void SpaceShip::setColor(const Color& color)
 {
 	_color = &color;
@@ -116,4 +155,9 @@ void SpaceShip::setColor(const Color& color)
 const Color& SpaceShip::getColor() const
 {
 	return *_color;
+}
+
+void SpaceShip::setPlayer()
+{
+	_isPlayer = true;
 }

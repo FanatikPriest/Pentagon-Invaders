@@ -98,6 +98,7 @@
     <ClInclude Include="ShipStatistics.h" />
     <ClInclude Include="SpaceShip.h" />
     <ClInclude Include="Vector2f.h" />
+    <ClInclude Include="WindowSettings.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />

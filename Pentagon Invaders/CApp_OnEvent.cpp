@@ -36,6 +36,10 @@ void CApp::OnEvent(SDL_Event& event) {
 					keyboard.right = event.key.state;
 					break;
 				}
+				case SDL_SCANCODE_ESCAPE: {
+					Running = false;
+					break;
+				}
 			}
 
 			break;

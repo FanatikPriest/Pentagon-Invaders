@@ -8,13 +8,12 @@ void CApp::OnLoop() {
 	Delta::set();
 
 	SpaceShip& player = scene->getPlayerShip();
-
-	// TODO keep player on screen
+	
 	MovementHandler::movePlayer(player);
 
 	player.generateVertices();
 
-	// TODO remove off-screen objects
+	scene->removeOffScreenObjects();
 
 	LoopUtils::moveBullets(*scene->getEnemyBullets());
 	LoopUtils::moveBullets(*scene->getPlayerBullets());

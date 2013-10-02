@@ -65,26 +65,40 @@ void Scene::removeOffScreenObjects()
 
 void Scene::removeOffScreenShips()
 {
-	for (auto iter = _ships.begin(); iter != _ships.end(); ++iter)
+	std::list<SpaceShip*>::iterator iter = _ships.begin();
+	while (iter != _ships.end())
 	{
 		SpaceShip* ship = *iter;
+
 		if (ship->isOffScreen())
 		{
-			_ships.remove(ship);
+			_ships.erase(iter++);
+
+			delete ship;
+		}
+		else 
+		{
+			++iter;
 		}
 	}
 }
 
 void Scene::removeOffScreenBullets(std::list<Bullet*>& bullets)
 {
-	for (auto iter = _playerBullets.begin(); iter != _playerBullets.end(); ++iter)
+	std::list<Bullet*>::iterator iter = bullets.begin();
+	while (iter != bullets.end())
 	{
 		Bullet* bullet = *iter;
+
 		if (bullet->isOffScreen())
 		{
-			_playerBullets.erase(iter);
+			bullets.erase(iter++);
 
-			delete (bullet);
+			delete bullet;
+		}
+		else 
+		{
+			++iter;
 		}
 	}
 }

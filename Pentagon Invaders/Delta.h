@@ -9,13 +9,10 @@ public:
 	static void set();
 
 private:
-	Uint32 _last;
-	float _delta;
-
-	static Delta& getInstance();
+	static Uint32 _last;
+	static float _delta;
 
 	Delta();
 	Delta(Delta&);
 	void operator=(const Delta&);
-
 };

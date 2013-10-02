@@ -17,5 +17,5 @@ public:
 
 	static const Color& getRandom();
 private:
-	static Color lastColor;
+	static const Color* _lastColor;
 };

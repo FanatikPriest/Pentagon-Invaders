@@ -13,17 +13,22 @@ const Color ColorManager::playerColor = Color(0.42f, 0.894f, 0.0f); // green
 const Color ColorManager::black = Color(0.0f, 0.0f, 0.0f);
 const Color ColorManager::white = Color(1.0f, 1.0f, 1.0f);
 
-Color ColorManager::lastColor = black;
+const Color* ColorManager::_lastColor = &black;
 
 const Color& ColorManager::getRandom()
 {
-	srand((unsigned int)time(NULL));
-	const Color& color = palette[rand() % 5];
+	int count = 5;
 
-	if (color == lastColor)
+	srand((unsigned int)time(NULL));
+	int index = rand() % count;
+	const Color* color = &palette[index];
+
+	if (*color == *_lastColor)
 	{
-		return getRandom();
+		color = &palette[(index + 1) % count];
 	}
 
-	return color;
+	_lastColor = color;
+
+	return *color;
 }

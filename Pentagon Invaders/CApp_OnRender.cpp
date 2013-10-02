@@ -8,8 +8,8 @@ void CApp::OnRender() {
 	DrawingUtils::renderBullets(*scene->getEnemyBullets());
 	DrawingUtils::renderBullets(*scene->getPlayerBullets());
 
-	DrawingUtils::renderShip(scene->getPlayerShip());
 	DrawingUtils::renderShips(*scene->getShips());
+	DrawingUtils::renderShip(scene->getPlayerShip());
 
 	SDL_GL_SwapWindow(sdlWindow);
 }

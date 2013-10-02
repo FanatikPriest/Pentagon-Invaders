@@ -47,6 +47,11 @@ void Scene::addSpaceShip(SpaceShip* s)
 	_ships.push_back(s);
 }
 
+void Scene::addSpaceShips(std::list<SpaceShip*>* ships)
+{
+	_ships.merge(*ships);
+}
+
 void Scene::addPlayerBullet(Bullet* b)
 {
 	_playerBullets.push_back(b);

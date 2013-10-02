@@ -18,6 +18,7 @@ public:
 	std::list<Bullet*>* getPlayerBullets();
 	std::list<Bullet*>* getEnemyBullets();
 	void addSpaceShip(SpaceShip* s);
+	void addSpaceShips(std::list<SpaceShip*>* ships);
 	void addPlayerBullet(Bullet* b);
 	void addEnemyBullet(Bullet* b);
 

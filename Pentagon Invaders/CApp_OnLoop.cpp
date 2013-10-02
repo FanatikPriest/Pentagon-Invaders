@@ -25,5 +25,5 @@ void CApp::OnLoop() {
 		scene->addPlayerBullet(new Bullet(Vector2f(512.0f, 200.0f),Vector2f(0.0f, 1.0f), 2.5f, 15.0f, 15));
 	}
 
-	// TODO create ships
+	waveMaker.startWave();
 }

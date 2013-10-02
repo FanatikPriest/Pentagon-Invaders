@@ -19,7 +19,7 @@ public:
 	inline int getHealth() const;
 	inline int getDamage() const;
 private:
-	static const int DEFAULT_MAX_HEALTH = 100;
+	static const int DEFAULT_MAX_HEALTH = 15;
 	static const int DEFAULT_DAMAGE = 1;
 
 	int _maxHealth;

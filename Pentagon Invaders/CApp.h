@@ -6,6 +6,7 @@
 #include <GL/glut.h>
 
 #include "Scene.h"
+#include "WaveMaker.h"
  
 class CApp {
 private:
@@ -17,6 +18,7 @@ private:
 	SDL_GLContext	glContext;
 
 	Scene* scene;
+	WaveMaker waveMaker;
  
 public:
     CApp();

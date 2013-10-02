@@ -100,6 +100,7 @@
     <ClInclude Include="ShipStatistics.h" />
     <ClInclude Include="SpaceShip.h" />
     <ClInclude Include="Vector2f.h" />
+    <ClInclude Include="WaveMaker.h" />
     <ClInclude Include="WindowSettings.h" />
   </ItemGroup>
   <ItemGroup>
@@ -117,6 +118,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="ShipStatistics.cpp" />
     <ClCompile Include="SpaceShip.cpp" />
+    <ClCompile Include="WaveMaker.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

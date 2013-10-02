@@ -2,6 +2,8 @@
 
 #include "Vector2f.h"
 #include "ShipStatistics.h"
+#include "Color.h"
+#include "ColorManager.h"
 
 /**
 	Represents a space ship.
@@ -23,6 +25,9 @@ public:
 
 	void generateVertices();
 
+	void setColor(const Color& color);
+	const Color& getColor() const;
+
 private:
 	static const int DEFAULT_RADIUS = 15;
 	static const int DEFAULT_NUMBER_OF_VERTICES = 5;
@@ -35,4 +40,5 @@ private:
 	Vector2f _center;
 	Vector2f* _vertices;
 	ShipStatistics _stats;
+	const Color* _color;
 };

@@ -10,6 +10,7 @@
 SpaceShip::SpaceShip()
 {
 	_vertices = NULL;
+	setColor(ColorManager::white);
 }
 
 SpaceShip::SpaceShip(const Vector2f center, int radius, int numberOfVertices)
@@ -22,8 +23,11 @@ SpaceShip::SpaceShip(const Vector2f center, int radius, int numberOfVertices)
 	_center = center;
 	_vertices = NULL;
 
-	generateVertices();
+	setColor(ColorManager::white);
+
 	setStats(ShipStatistics());
+
+	generateVertices();
 }
 
 SpaceShip::~SpaceShip()
@@ -102,4 +106,14 @@ Vector2f* SpaceShip::getVertices() const
 const int SpaceShip::getNumberOfVertices() const
 {
 	return _numberOfVertices;
+}
+
+void SpaceShip::setColor(const Color& color)
+{
+	_color = &color;
+}
+
+const Color& SpaceShip::getColor() const
+{
+	return *_color;
 }

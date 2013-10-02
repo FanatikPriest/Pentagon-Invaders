@@ -5,6 +5,7 @@
 #include <math.h>
 
 #include "SpaceShip.h"
+#include "Color.h"
 
 namespace DrawingUtils
 {
@@ -38,8 +39,8 @@ namespace DrawingUtils
 		// Begin drawing the ship.
 		glBegin(GL_POLYGON);
 
-		// TODO get color from object
-		glColor3f(0.75f, 0.5f, 0.25f);
+		const Color& color = ship.getColor();
+		glColor3f(color.red, color.green, color.blue);
 
 		Vector2f *vertices = ship.getVertices();
 

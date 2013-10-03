@@ -8,6 +8,11 @@ void CApp::OnLoop() {
 	Delta::set();
 
 	SpaceShip& player = scene->getPlayerShip();
+
+	// TODO damage player
+	
+	LoopUtils::damageShip(player, *(scene->getEnemyBullets()));
+	//LoopUtils::damageShips(*(scene->getShips()), *(scene->getPlayerBullets()));
 	
 	MovementHandler::movePlayer(player);
 

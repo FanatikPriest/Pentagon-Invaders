@@ -23,7 +23,7 @@ public:
 	void addEnemyBullet(Bullet* b);
 
 	void removeUnusableObjects();
-
+	
 private:
 	SpaceShip _playerShip;
 	std::list<SpaceShip*> _ships;

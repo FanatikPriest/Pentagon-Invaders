@@ -14,6 +14,7 @@ public:
 
 	const Vector2f& getCenter() const;
 	const float getRadius() const;
+	const int getDamage() const;
 
 	const Color& getColor() const;
 	void setColor(const Color& color);

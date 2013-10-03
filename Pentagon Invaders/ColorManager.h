@@ -1,8 +1,6 @@
 #pragma once
 
 #include <cstdlib>
-#include <time.h>
-
 #include "Color.h"
 
 class ColorManager

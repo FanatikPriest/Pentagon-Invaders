@@ -19,7 +19,6 @@ const Color& ColorManager::getRandom()
 {
 	int count = 5;
 
-	srand((unsigned int)time(NULL));
 	int index = rand() % count;
 	const Color* color = &palette[index];
 

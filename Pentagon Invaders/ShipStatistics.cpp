@@ -1,6 +1,6 @@
 #include "ShipStatistics.h"
 
-const float ShipStatistics::DEFAULT_BULLET_SPEED = 15.0f;
+const float ShipStatistics::DEFAULT_BULLET_SPEED = 8.0f;
 
 bool ShipStatistics::isDead() const
 {

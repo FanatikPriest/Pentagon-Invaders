@@ -42,6 +42,11 @@ Vector2f SpaceShip::getCenter() const
 	return _center;
 }
 
+float SpaceShip::getRadius() const
+{
+	return _radius;
+}
+
 inline void SpaceShip::generateVertices()
 {
 	if (_vertices != NULL)

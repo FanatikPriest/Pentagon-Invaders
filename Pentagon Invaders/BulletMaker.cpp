@@ -75,8 +75,6 @@ void BulletMaker::makeEnemyBullets()
 	{
 		if (now > _lastEnemyBullet + delay)
 		{
-			srand((unsigned int)time(NULL));
-
 			for (auto iter = ships->begin(); iter != ships->end(); ++iter)
 			{
 				SpaceShip& enemy = **iter;

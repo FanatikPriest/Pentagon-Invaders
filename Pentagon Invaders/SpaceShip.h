@@ -21,6 +21,7 @@ public:
 	void setStats(const ShipStatistics stats);
 
 	Vector2f getCenter() const;
+	float getRadius() const;
 
 	Vector2f* getVertices() const;
 	const int getNumberOfVertices() const;

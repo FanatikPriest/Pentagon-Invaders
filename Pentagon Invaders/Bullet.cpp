@@ -25,6 +25,11 @@ const float Bullet::getRadius() const
 	return _radius;
 }
 
+const int Bullet::getDamage() const
+{
+	return _damage;
+}
+
 const Color& Bullet::getColor() const
 {
 	return *_color;

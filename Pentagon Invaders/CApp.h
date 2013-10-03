@@ -11,12 +11,9 @@
  
 class CApp {
 private:
-	bool    Running;
+	bool Running;
 
-	SDL_Window*		sdlWindow;
-	SDL_Renderer*	sdlRenderer;
-	SDL_Surface*    Surf_Display;
-	SDL_GLContext	glContext;
+	SDL_Window*	sdlWindow;
 
 	Scene* scene;
 	WaveMaker waveMaker;

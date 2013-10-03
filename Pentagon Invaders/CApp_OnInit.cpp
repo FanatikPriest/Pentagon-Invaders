@@ -1,4 +1,5 @@
 #include <iostream>
+#include <time.h>
 
 #include "CApp.h"
 #include "SpaceShip.h"
@@ -32,22 +33,15 @@ bool CApp::OnInit() {
         return false;
     }
 
-	sdlRenderer = SDL_CreateRenderer(sdlWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-
-	if(sdlRenderer == NULL) {
-		std::cout << SDL_GetError() << std::endl;
-        return false;
-    }
-
-	Surf_Display = SDL_GetWindowSurface(sdlWindow);
-
-	glContext = SDL_GL_CreateContext(sdlWindow);
+	SDL_GL_CreateContext(sdlWindow);
 
 	
 	glViewport(0,0, WindowSettings::WINDOW_WIDTH, WindowSettings::WINDOW_HEIGHT);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluOrtho2D(0.0, WindowSettings::WINDOW_WIDTH, 0.0, WindowSettings::WINDOW_HEIGHT);
+
+	srand((unsigned int)time(NULL));
 
     return true;
 }

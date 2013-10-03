@@ -2,7 +2,6 @@
 
 #include <SDL.h>
 #include <cstdlib>
-#include <time.h>
 
 #include "SpaceShip.h"
 #include "Bullet.h"

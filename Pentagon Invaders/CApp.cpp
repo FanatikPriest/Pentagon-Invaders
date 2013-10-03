@@ -2,8 +2,6 @@
  
 CApp::CApp() {
 	sdlWindow = NULL;
-	sdlRenderer = NULL;
-    Surf_Display = NULL;
  
     Running = true;
 

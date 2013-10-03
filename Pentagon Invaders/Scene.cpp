@@ -62,21 +62,21 @@ void Scene::addEnemyBullet(Bullet* b)
 	_enemyBullets.push_back(b);
 }
 
-void Scene::removeOffScreenObjects()
+void Scene::removeUnusableObjects()
 {
-	removeOffScreenShips();
+	removeUnusableShips();
 	removeOffScreenBullets(_playerBullets);
 	removeOffScreenBullets(_enemyBullets);
 }
 
-void Scene::removeOffScreenShips()
+void Scene::removeUnusableShips()
 {
 	std::list<SpaceShip*>::iterator iter = _ships.begin();
 	while (iter != _ships.end())
 	{
 		SpaceShip* ship = *iter;
 
-		if (ship->isOffScreen())
+		if (ship->isOffScreen() || ship->getStats().isDead())
 		{
 			_ships.erase(iter++);
 

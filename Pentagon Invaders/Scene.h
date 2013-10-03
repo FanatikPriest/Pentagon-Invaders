@@ -22,7 +22,7 @@ public:
 	void addPlayerBullet(Bullet* b);
 	void addEnemyBullet(Bullet* b);
 
-	void removeOffScreenObjects();
+	void removeUnusableObjects();
 
 private:
 	SpaceShip _playerShip;
@@ -34,6 +34,6 @@ private:
 	Scene(Scene const&);
 	void operator=(Scene const&);
 
-	void removeOffScreenShips();
+	void removeUnusableShips();
 	void removeOffScreenBullets(std::list<Bullet*>& bullets);
 };

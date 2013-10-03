@@ -2,17 +2,17 @@
 
 const float ShipStatistics::DEFAULT_BULLET_SPEED = 15.0f;
 
-inline bool ShipStatistics::isDead() const
+bool ShipStatistics::isDead() const
 {
 	return _health <= 0;
 }
 
-inline void ShipStatistics::inflictDamage(int damage)
+void ShipStatistics::inflictDamage(int damage)
 {
 	_health -= damage;
 }
 
-inline double ShipStatistics::getHealthPercentage() const
+double ShipStatistics::getHealthPercentage() const
 {
 	return _health / _maxHealth;
 }

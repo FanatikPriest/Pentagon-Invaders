@@ -17,9 +17,9 @@ public:
 		_bulletSpeed(bulletSpeed)
 	{}
 
-	inline bool isDead() const;
-	inline void inflictDamage(int damage);
-	inline double getHealthPercentage() const;
+	bool isDead() const;
+	void inflictDamage(int damage);
+	double getHealthPercentage() const;
 
 	int getHealth() const;
 	int getDamage() const;

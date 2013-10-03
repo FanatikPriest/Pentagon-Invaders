@@ -13,8 +13,7 @@ void CApp::OnLoop() {
 
 	player.generateVertices();
 
-	scene->removeOffScreenObjects();
-	// TODO remove dead ships
+	scene->removeUnusableObjects();
 
 	LoopUtils::moveBullets(*scene->getEnemyBullets());
 	LoopUtils::moveBullets(*scene->getPlayerBullets());

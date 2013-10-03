@@ -1,5 +1,7 @@
 #include "ShipStatistics.h"
 
+const float ShipStatistics::DEFAULT_BULLET_SPEED = 15.0f;
+
 inline bool ShipStatistics::isDead() const
 {
 	return _health <= 0;
@@ -15,12 +17,22 @@ inline double ShipStatistics::getHealthPercentage() const
 	return _health / _maxHealth;
 }
 
-inline int ShipStatistics::getHealth() const
+int ShipStatistics::getHealth() const
 {
 	return _health;
 }
 
-inline int ShipStatistics::getDamage() const
+int ShipStatistics::getDamage() const
 {
 	return _damage;
+}
+
+Uint32 ShipStatistics::getFireDelay() const
+{
+	return _fireDelay;
+}
+
+float ShipStatistics::getBulletSpeed() const
+{
+	return _bulletSpeed;
 }

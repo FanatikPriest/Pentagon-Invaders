@@ -14,16 +14,12 @@ void CApp::OnLoop() {
 	player.generateVertices();
 
 	scene->removeOffScreenObjects();
+	// TODO remove dead ships
 
 	LoopUtils::moveBullets(*scene->getEnemyBullets());
 	LoopUtils::moveBullets(*scene->getPlayerBullets());
 
-	// TODO add bullets
-
-	if (scene->getPlayerBullets()->empty())
-	{
-		scene->addPlayerBullet(new Bullet(Vector2f(512.0f, 200.0f),Vector2f(0.0f, 1.0f), 2.5f, 15.0f, 15));
-	}
+	bulletMaker.makeBullets();
 
 	waveMaker.startWave();
 }

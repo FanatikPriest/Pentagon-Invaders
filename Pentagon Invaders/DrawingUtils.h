@@ -10,7 +10,7 @@
 class DrawingUtils
 {
 public:
-	static void drawCircle(const float x, const float y, const float radius)
+	static void drawCircle(const float x, const float y, const float radius, const Color& color)
 	{
 
 		glLineWidth(1);
@@ -19,7 +19,7 @@ public:
 		float angle;
 
 		// TODO get color from object
-		glColor3f(0.75f, 0.5f, 0.25f);
+		glColor3f(color.red, color.green, color.blue);
  
 		glBegin(GL_TRIANGLE_FAN);
 		glVertex2f(x, y);
@@ -75,7 +75,7 @@ public:
 
 	static void renderBullet(const Bullet& b, const bool flush = true)
 	{
-		drawCircle(b.getCenter().getX(), b.getCenter().getY(), b.getRadius());
+		drawCircle(b.getCenter().getX(), b.getCenter().getY(), b.getRadius(), b.getColor());
 
 		if (flush)
 		{

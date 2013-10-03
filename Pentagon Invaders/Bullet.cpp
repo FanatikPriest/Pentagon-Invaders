@@ -8,6 +8,7 @@ Bullet::Bullet(Vector2f center, Vector2f direction, float radius, float speed, i
 	_radius = radius;
 	_speed = speed;
 	_damage = damage;
+	_color = &ColorManager::white;
 }
 
 void Bullet::move()
@@ -22,6 +23,16 @@ const Vector2f& Bullet::getCenter() const
 const float Bullet::getRadius() const
 {
 	return _radius;
+}
+
+const Color& Bullet::getColor() const
+{
+	return *_color;
+}
+
+void Bullet::setColor(const Color& color)
+{
+	_color = &color;
 }
 
 const bool Bullet::isOffScreen() const

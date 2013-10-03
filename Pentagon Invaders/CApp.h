@@ -7,6 +7,7 @@
 
 #include "Scene.h"
 #include "WaveMaker.h"
+#include "BulletMaker.h"
  
 class CApp {
 private:
@@ -19,6 +20,7 @@ private:
 
 	Scene* scene;
 	WaveMaker waveMaker;
+	BulletMaker bulletMaker;
  
 public:
     CApp();

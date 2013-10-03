@@ -3,6 +3,7 @@
 Scene::Scene() : _playerShip(SpaceShip(Vector2f(512.0f, 100.0f), 20, 3))
 {
 	_playerShip.setColor(ColorManager::playerColor);
+	_playerShip.setStats(ShipStatistics());
 	_playerShip.setPlayer();
 }
 

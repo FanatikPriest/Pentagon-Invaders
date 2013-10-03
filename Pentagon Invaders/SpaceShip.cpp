@@ -37,6 +37,11 @@ SpaceShip::~SpaceShip()
 	delete[] _vertices;
 }
 
+Vector2f SpaceShip::getCenter() const
+{
+	return _center;
+}
+
 inline void SpaceShip::generateVertices()
 {
 	if (_vertices != NULL)

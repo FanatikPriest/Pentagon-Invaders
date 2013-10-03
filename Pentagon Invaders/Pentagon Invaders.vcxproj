@@ -88,6 +88,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="BulletMaker.h" />
     <ClInclude Include="CApp.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="ColorManager.h" />
@@ -105,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletMaker.cpp" />
     <ClCompile Include="CApp.cpp" />
     <ClCompile Include="CApp_OnCleanup.cpp" />
     <ClCompile Include="CApp_OnEvent.cpp" />

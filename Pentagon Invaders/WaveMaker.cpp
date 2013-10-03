@@ -16,23 +16,25 @@ bool WaveMaker::isWaveOver()
 
 void WaveMaker::startWave()
 {
-	if (isWaveOver())
+	if (!isWaveOver())
 	{
-		if (_isWaiting)
-		{
-			Uint32 now = SDL_GetTicks();
+		return;
+	}
 
-			if (now > _lastPush + WAVE_DELAY_TIME)
-			{
-				makeWave();
-				_isWaiting = false;
-			}
-		}
-		else 
+	if (_isWaiting)
+	{
+		Uint32 now = SDL_GetTicks();
+
+		if (now > _lastPush + WAVE_DELAY_TIME)
 		{
-			_lastPush = SDL_GetTicks();
-			_isWaiting = true;
+			makeWave();
+			_isWaiting = false;
 		}
+	}
+	else 
+	{
+		_lastPush = SDL_GetTicks();
+		_isWaiting = true;
 	}
 }
 

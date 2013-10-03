@@ -20,6 +20,8 @@ public:
 	ShipStatistics getStats() const;
 	void setStats(const ShipStatistics stats);
 
+	Vector2f getCenter() const;
+
 	Vector2f* getVertices() const;
 	const int getNumberOfVertices() const;
 	void generateVertices();

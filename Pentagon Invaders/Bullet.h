@@ -2,6 +2,8 @@
 
 #include "Vector2f.h"
 #include "Delta.h"
+#include "Color.h"
+#include "ColorManager.h"
 
 class Bullet
 {
@@ -13,6 +15,9 @@ public:
 	const Vector2f& getCenter() const;
 	const float getRadius() const;
 
+	const Color& getColor() const;
+	void setColor(const Color& color);
+
 	const bool isOffScreen() const;
 
 private:
@@ -21,4 +26,5 @@ private:
 	float _radius;
 	float _speed;
 	int	_damage;
+	const Color* _color;
 };

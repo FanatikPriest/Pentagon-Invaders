@@ -6,9 +6,9 @@
 class LoopUtils
 {
 public:
-	static void moveBullets(const std::vector<Bullet*>& bullets)
+	static void moveBullets(std::vector<Bullet*>& bullets)
 	{
-		std::vector<Bullet*>::const_iterator iterator;
+		std::vector<Bullet*>::iterator iterator;
 		for (iterator = bullets.begin(); iterator != bullets.end(); ++iterator)
 		{
 			Bullet* bullet = *iterator;
@@ -27,9 +27,10 @@ public:
 		{
 			return;
 		}
+		
+		std::vector<SpaceShip*> toRemove;
 
-		auto iter = ships.begin();
-		while (iter != ships.end())
+		for (auto iter = ships.begin(); iter != ships.end(); ++iter)
 		{
 			SpaceShip* ship = *iter;
 
@@ -37,22 +38,27 @@ public:
 
 			if (ship->getStats().isDead())
 			{
-				ships.erase(iter++);
-
-				delete ship;
-			}
-			else
-			{
-				++iter;
+				toRemove.push_back(ship);
 			}
 		}
+
+		ships.erase(
+			std::remove_if(ships.begin(), ships.end(), [toRemove](const SpaceShip * o)
+				{
+					return std::find(toRemove.begin(), toRemove.end(), o) != toRemove.end();
+				}
+			),
+			ships.end()
+		);
 	}
 
 	static void damageShip(const SpaceShip& ship, std::vector<Bullet*>& bullets)
 	{
-		std::vector<Bullet*>::iterator bIter = bullets.begin();
+		std::vector<Bullet*> toRemove;
 
-		while (bIter != bullets.end())
+		std::vector<Bullet*>::iterator bIter;
+
+		for (bIter = bullets.begin(); bIter != bullets.end(); ++bIter)
 		{
 			Bullet* bullet = *bIter;
 
@@ -61,19 +67,23 @@ public:
 				ship.getStats().inflictDamage(bullet->getDamage());
 
 				Bullet* bullet = *bIter;
-				bullets.erase(bIter++);
 
-				//delete bullet;
+				toRemove.push_back(bullet);
 
 				if (ship.getStats().isDead())
 				{
 					break;
 				}
 			}
-			else
-			{
-				++bIter;
-			}
 		}
+
+		bullets.erase(
+			std::remove_if(bullets.begin(), bullets.end(), [toRemove](const Bullet * o)
+				{
+					return std::find(toRemove.begin(), toRemove.end(), o) != toRemove.end();
+				}
+			),
+			bullets.end()
+		);
 	}
 };

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <algorithm>
 
 #include "SpaceShip.h"
 #include "Bullet.h"

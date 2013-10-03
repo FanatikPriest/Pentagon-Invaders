@@ -50,7 +50,6 @@ void WaveMaker::generateEnemies()
 	float widthStep = (float) (WindowSettings::WINDOW_WIDTH / (count + 1));
 	float radius = 30.0f;
 	const Color& color = ColorManager::getRandom();
-	ShipStatistics stats;
 
 	for (int i = 0; i < count; i++)
 	{
@@ -58,7 +57,7 @@ void WaveMaker::generateEnemies()
 
 		SpaceShip* ship = new SpaceShip(position, radius);
 		ship->setColor(color);
-		ship->setStats(stats);
+		ship->setStats(ShipStatistics());
 
 		_scene->addSpaceShip(ship);
 	}

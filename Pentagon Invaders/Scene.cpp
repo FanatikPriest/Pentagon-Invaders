@@ -71,42 +71,21 @@ void Scene::removeUnusableObjects()
 
 void Scene::removeUnusableShips()
 {
-	std::vector<SpaceShip*>::iterator iter = _ships.begin();
-	while (iter != _ships.end())
-	{
-		SpaceShip* ship = *iter;
-
-		if (ship->isOffScreen() || ship->getStats().isDead())
-		{
-			_ships.erase(iter++);
-
-			delete ship;
-		}
-		else 
-		{
-			++iter;
-		}
-	}
+	_ships.erase(
+		std::remove_if(_ships.begin(), _ships.end(), [](const SpaceShip* s)
+			{
+				return s->isOffScreen() || s->getStats().isDead();
+			}
+		),
+		_ships.end()
+	);
 }
 
 void Scene::removeOffScreenBullets(std::vector<Bullet*>& bullets)
 {
-	std::vector<Bullet*>::iterator iter = bullets.begin();
-
-	while (iter != bullets.end())
-	{
-		Bullet* bullet = *iter;
-
-		if (bullet->isOffScreen())
-		{
-			Bullet* bullet = *iter;
-			//bullets.erase(iter++);
-
-			//delete bullet;
-		}
-		else
-		{
-			++iter;
-		}
-	}
+	bullets.erase(
+		std::remove_if(bullets.begin(), bullets.end(), 
+			[](const Bullet * o) { return o->isOffScreen(); }),
+		bullets.end()
+	);
 }

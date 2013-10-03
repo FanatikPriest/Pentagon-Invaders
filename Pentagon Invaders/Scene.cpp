@@ -28,17 +28,17 @@ SpaceShip& Scene::getPlayerShip()
 	return _playerShip;
 }
 
-std::list<SpaceShip*>* Scene::getShips()
+std::vector<SpaceShip*>* Scene::getShips()
 {
 	return &_ships;
 }
 
-std::list<Bullet*>* Scene::getPlayerBullets()
+std::vector<Bullet*>* Scene::getPlayerBullets()
 {
 	return &_playerBullets;
 }
 
-std::list<Bullet*>* Scene::getEnemyBullets()
+std::vector<Bullet*>* Scene::getEnemyBullets()
 {
 	return &_enemyBullets;
 }
@@ -48,9 +48,9 @@ void Scene::addSpaceShip(SpaceShip* s)
 	_ships.push_back(s);
 }
 
-void Scene::addSpaceShips(std::list<SpaceShip*>* ships)
+void Scene::addSpaceShips(std::vector<SpaceShip*>* ships)
 {
-	_ships.merge(*ships);
+	_ships.insert(_ships.end(), ships->begin(), ships->end());
 }
 
 void Scene::addPlayerBullet(Bullet* b)
@@ -71,7 +71,7 @@ void Scene::removeUnusableObjects()
 
 void Scene::removeUnusableShips()
 {
-	std::list<SpaceShip*>::iterator iter = _ships.begin();
+	std::vector<SpaceShip*>::iterator iter = _ships.begin();
 	while (iter != _ships.end())
 	{
 		SpaceShip* ship = *iter;
@@ -89,20 +89,22 @@ void Scene::removeUnusableShips()
 	}
 }
 
-void Scene::removeOffScreenBullets(std::list<Bullet*>& bullets)
+void Scene::removeOffScreenBullets(std::vector<Bullet*>& bullets)
 {
-	std::list<Bullet*>::iterator iter = bullets.begin();
+	std::vector<Bullet*>::iterator iter = bullets.begin();
+
 	while (iter != bullets.end())
 	{
 		Bullet* bullet = *iter;
 
 		if (bullet->isOffScreen())
 		{
-			bullets.erase(iter++);
+			Bullet* bullet = *iter;
+			//bullets.erase(iter++);
 
-			delete bullet;
+			//delete bullet;
 		}
-		else 
+		else
 		{
 			++iter;
 		}

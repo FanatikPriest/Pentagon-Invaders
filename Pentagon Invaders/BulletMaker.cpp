@@ -59,7 +59,7 @@ void BulletMaker::makePlayerBullets()
 
 void BulletMaker::makeEnemyBullets()
 {
-	std::list<SpaceShip*>* ships = _scene->getShips();
+	std::vector<SpaceShip*>* ships = _scene->getShips();
 
 	if (ships->empty())
 	{
@@ -95,7 +95,7 @@ void BulletMaker::makeEnemyBullets()
 				Bullet* bullet = new Bullet(vertex, direction, radius, bulletSpeed, damage);
 				bullet ->setColor(color);
 
-				_scene->addPlayerBullet(bullet);
+				_scene->addEnemyBullet(bullet);
 			}
 
 			_areEnemiesWaiting = false;

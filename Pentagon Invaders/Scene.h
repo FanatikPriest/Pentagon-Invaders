@@ -1,6 +1,6 @@
 #pragma once
 
-#include <list>
+#include <vector>
 
 #include "SpaceShip.h"
 #include "Bullet.h"
@@ -14,11 +14,11 @@ public:
 	static Scene & getInstance();
 
 	SpaceShip& getPlayerShip();
-	std::list<SpaceShip*>* getShips();
-	std::list<Bullet*>* getPlayerBullets();
-	std::list<Bullet*>* getEnemyBullets();
+	std::vector<SpaceShip*>* getShips();
+	std::vector<Bullet*>* getPlayerBullets();
+	std::vector<Bullet*>* getEnemyBullets();
 	void addSpaceShip(SpaceShip* s);
-	void addSpaceShips(std::list<SpaceShip*>* ships);
+	void addSpaceShips(std::vector<SpaceShip*>* ships);
 	void addPlayerBullet(Bullet* b);
 	void addEnemyBullet(Bullet* b);
 
@@ -26,14 +26,14 @@ public:
 	
 private:
 	SpaceShip _playerShip;
-	std::list<SpaceShip*> _ships;
-	std::list<Bullet*> _playerBullets;
-	std::list<Bullet*> _enemyBullets;
+	std::vector<SpaceShip*> _ships;
+	std::vector<Bullet*> _playerBullets;
+	std::vector<Bullet*> _enemyBullets;
 
 	Scene();
 	Scene(Scene const&);
 	void operator=(Scene const&);
 
 	void removeUnusableShips();
-	void removeOffScreenBullets(std::list<Bullet*>& bullets);
+	void removeOffScreenBullets(std::vector<Bullet*>& bullets);
 };

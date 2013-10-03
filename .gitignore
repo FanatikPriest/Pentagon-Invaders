@@ -2,4 +2,5 @@ Debug/*
 Release/*
 Pentagon Invaders/Debug/*
 Pentagon Invaders/Release/*
+Pentagon Invaders/logs/*
 *.opensdf

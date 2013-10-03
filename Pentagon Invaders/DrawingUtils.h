@@ -1,4 +1,4 @@
-#include <list>
+#include <vector>
 #include <SDL.h>
 #include <SDL_opengl.h>
 #include <GL/glut.h>
@@ -61,9 +61,9 @@ public:
 		}
 	}
 
-	static void renderShips(const std::list<SpaceShip*>& ships)
+	static void renderShips(const std::vector<SpaceShip*>& ships)
 	{
-		std::list<SpaceShip*>::const_iterator iterator;
+		std::vector<SpaceShip*>::const_iterator iterator;
 		for (iterator = ships.begin(); iterator != ships.end(); ++iterator)
 		{
 			SpaceShip* ship = *iterator;
@@ -83,7 +83,7 @@ public:
 		}
 	}
 
-	static void renderBullets(std::list<Bullet*>& bullets)
+	static void renderBullets(std::vector<Bullet*>& bullets)
 	{
 		for (auto iterator = bullets.begin(); iterator != bullets.end(); ++iterator)
 		{

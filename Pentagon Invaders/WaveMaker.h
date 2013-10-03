@@ -1,7 +1,6 @@
 #pragma once
 
 #include <SDL.h>
-#include <list>
 
 #include "SpaceShip.h"
 #include "Scene.h"

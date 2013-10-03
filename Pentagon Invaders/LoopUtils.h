@@ -1,4 +1,4 @@
-#include <list>
+#include <vector>
 
 #include "SpaceShip.h"
 #include "Bullet.h"
@@ -6,9 +6,9 @@
 class LoopUtils
 {
 public:
-	static void moveBullets(const std::list<Bullet*>& bullets)
+	static void moveBullets(const std::vector<Bullet*>& bullets)
 	{
-		std::list<Bullet*>::const_iterator iterator;
+		std::vector<Bullet*>::const_iterator iterator;
 		for (iterator = bullets.begin(); iterator != bullets.end(); ++iterator)
 		{
 			Bullet* bullet = *iterator;
@@ -21,7 +21,7 @@ public:
 		return (center2-center1).getMagnitude() < radius1 + radius2;
 	}
 
-	static void damageShips(std::list<SpaceShip*>& ships, std::list<Bullet*>& bullets)
+	static void damageShips(std::vector<SpaceShip*>& ships, std::vector<Bullet*>& bullets)
 	{
 		if (ships.empty() || bullets.empty())
 		{
@@ -48,9 +48,10 @@ public:
 		}
 	}
 
-	static void damageShip(SpaceShip& ship, std::list<Bullet*>& bullets)
+	static void damageShip(const SpaceShip& ship, std::vector<Bullet*>& bullets)
 	{
-		auto bIter = bullets.begin();
+		std::vector<Bullet*>::iterator bIter = bullets.begin();
+
 		while (bIter != bullets.end())
 		{
 			Bullet* bullet = *bIter;
@@ -59,9 +60,10 @@ public:
 			{
 				ship.getStats().inflictDamage(bullet->getDamage());
 
+				Bullet* bullet = *bIter;
 				bullets.erase(bIter++);
 
-				delete bullet;
+				//delete bullet;
 
 				if (ship.getStats().isDead())
 				{
